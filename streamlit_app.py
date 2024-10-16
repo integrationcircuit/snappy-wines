@@ -72,7 +72,13 @@ Generate a query for the following prompt:
 
 Respond with a JSON object with the property "queryToExecute" and the value being the SQL query"""
 
-st.title("Wine Workshop")
+st.title("SnapLogic Workshop - GenAI Wine DB")
+
+
+url = st.text_input("Enter your TASK URL", placeholder="https://emea.snaplogic.com/api/1/rest/slsched/feed/ConnectFasterInc/0_StanGPT/Demos/SnapGPT_Sandbox%20Taskwine")
+token = st.text_input("Enter your BEARER TOKEN", placeholder="Test1234")
+st.header("")
+
 
 if st.checkbox("Show SnapGPT Empty Value Prompts"):
     st.info("Set empty Region to 'Unknown'")
@@ -89,11 +95,9 @@ if st.checkbox("Show Empty Property Filter"):
     
 
 if st.checkbox("Show Product Query Prompt"):
-    st.info(injected_prompt)
+    st.text(injected_prompt)
 
-url = st.text_input("Enter your TASK URL", placeholder="https://emea.snaplogic.com/api/1/rest/slsched/feed/ConnectFasterInc/0_StanGPT/Demos/SnapGPT_Sandbox%20Taskwine")
-token = st.text_input("Enter your BEARER TOKEN", placeholder="Test1234")
-
+st.header("")
 st.header("Sample Queries")
 
 st.write("What are the top 10 highest-rated French wines")
@@ -108,7 +112,12 @@ st.write("What are the top 3 most expensive wines with the words hint of caramel
 
 st.write("Can you recommend a light rose wine with a hint of peach?")
 
-prompt = st.text_input("Enter your prompt", value="What are the top 10 highest-rated French wines over £300? Include the price")
+st.write()
+
+st.header("")
+st.header("The Results!")
+
+prompt = st.text_input("Your prompt goes here",placeholder="What are the top 10 highest-rated French wines over £300? Include the price")
 
 headers = {
     "Authorization": f"Bearer {token}"
