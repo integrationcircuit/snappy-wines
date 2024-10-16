@@ -75,7 +75,7 @@ Respond with a JSON object with the property "queryToExecute" and the value bein
 st.title("Wine Workshop")
 
 if st.checkbox("Show SnapGPT Empty Value Prompts"):
-    st.success("Set empty Region to 'Unknown'")
+    st.info("Set empty Region to 'Unknown'")
     st.text("$region_1==''?'Unknown':$region_1")
     st.text("$region_2==''?'Unknown':$region_2")
     st.write()
@@ -84,8 +84,8 @@ if st.checkbox("Show SnapGPT Empty Value Prompts"):
     
     st.write()
 if st.checkbox("Show Empty Property Filter"):
-    st.write()
-    st.write("$.filter((value, key) => key != '')")
+    st.info("This solves the empty header issue")
+    st.text("$.filter((value, key) => key != '')")
     
 
 if st.checkbox("Show Product Query Prompt"):
